@@ -1,7 +1,6 @@
 import AuthPage from "@/components/loginSignup";
-import Image from "next/image";
 
-export default function Home() {
+export default function Login() {
   return (
     <>
     <AuthPage />
