@@ -1,0 +1,32 @@
+# Dependencies — reinstalled fresh in Docker
+node_modules/
+
+# Next.js build output — rebuilt in Docker
+.next/
+out/
+
+# Env files — injected at runtime via platform env vars
+.env
+.env.*
+!.env.example
+.env.local
+
+# Dev & editor tools
+.git/
+.gitignore
+.qodo/
+README.md
+eslint.config.mjs
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/__tests__/
