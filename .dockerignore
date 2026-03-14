@@ -30,3 +30,6 @@ Thumbs.db
 **/*.test.ts
 **/*.test.tsx
 **/__tests__/
+
+#screenshots of readme file
+screenshots/
