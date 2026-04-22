@@ -3,10 +3,10 @@ import { CertItem, EduItem, ProjectItem, ExpItem } from "@/types/type";
 export const blankCert = (): CertItem => ({
   name: "",
   issuer: "",
-  issue_date: "",
-  expiry_date: "",
-  credential_id: "",
-  credential_url: "",
+  issue_date: null,
+  expiry_date: null,
+  credential_id: null,
+  credential_url: null,
 });
 
 export const blankEdu = (): EduItem => ({

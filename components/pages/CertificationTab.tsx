@@ -34,7 +34,9 @@ export function CertificationsTab() {
   };
   const cancel = () => setEditing(false);
   const setField = (i: number, k: keyof CertItem) => (v: string) =>
-    setForms((arr) => arr.map((x, idx) => (idx === i ? { ...x, [k]: v } : x)));
+    setForms((arr) =>
+      arr.map((x, idx) => (idx === i ? { ...x, [k]: v || null } : x)),
+    );
 
   const save = async () => {
     setSaving(true);
@@ -80,27 +82,12 @@ export function CertificationsTab() {
               editing={editing && i === 0}
             />
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-              <InfoRow label="Issue Date" value={cert.issue_date} />
+              <InfoRow label="Credential ID" value={cert.credential_id ?? ""} />
+              <InfoRow label="Issue Date" value={cert.issue_date ?? ""} />
               <InfoRow
                 label="Expiry Date"
                 value={cert.expiry_date || "No expiry"}
               />
-              <InfoRow label="Credential ID" value={cert.credential_id} />
-              {cert.credential_url && (
-                <div>
-                  <p className="text-[#8b949e] text-xs font-mono uppercase tracking-wider mb-0.5">
-                    Verify
-                  </p>
-                  <a
-                    href={cert.credential_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#58a6ff] text-sm font-mono hover:underline truncate block"
-                  >
-                    {cert.credential_url}
-                  </a>
-                </div>
-              )}
             </div>
           </ViewCard>
         ))
@@ -160,25 +147,25 @@ export function CertificationsTab() {
                   />
                   <Field
                     label="Issue Date"
-                    value={form.issue_date}
+                    value={form.issue_date ?? ""} // ← add ?? ""
                     onChange={setField(i, "issue_date")}
                     placeholder="2024-06-01"
                   />
                   <Field
                     label="Expiry Date"
-                    value={form.expiry_date}
+                    value={form.expiry_date ?? ""} // ← add ?? ""
                     onChange={setField(i, "expiry_date")}
                     placeholder="2027-06-01 (blank = no expiry)"
                   />
                   <Field
                     label="Credential ID"
-                    value={form.credential_id}
+                    value={form.credential_id ?? ""} // ← add ?? ""
                     onChange={setField(i, "credential_id")}
                     placeholder="ABC123"
                   />
                   <Field
                     label="Credential URL"
-                    value={form.credential_url}
+                    value={form.credential_url ?? ""} // ← add ?? ""
                     onChange={setField(i, "credential_url")}
                     placeholder="https://verify.example.com/abc"
                   />

@@ -1,11 +1,11 @@
-export interface CertItem {
+export type CertItem = {
   name: string;
   issuer: string;
-  issue_date: string;
-  expiry_date: string;
-  credential_id: string;
-  credential_url: string;
-}
+  issue_date: string | null;
+  expiry_date: string | null;
+  credential_id: string | null;
+  credential_url: string | null;
+};
 
 export type Tab =
   | "profile"
